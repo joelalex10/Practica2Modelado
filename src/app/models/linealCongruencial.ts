@@ -13,5 +13,6 @@ export interface LinealCongruencial{
     c:number,
     a:number,
     m:number,
+    secuencia?:LinealCongruencialSecuencia [],
 }
 

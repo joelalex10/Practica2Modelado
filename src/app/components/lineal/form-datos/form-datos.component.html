@@ -1,0 +1,67 @@
+<mat-card>
+    <mat-card-title>Ingresar Parametros</mat-card-title>
+    
+    <p *ngIf="mostrarAdvertencia()" class="badge bg-danger">*Todos los campos son obligatorios</p>
+    <form [formGroup]="generateData" (ngSubmit)="generarNumeros()">
+      <div class="row">
+        <mat-form-field appearance="outline" fxFlex="100" >
+          <mat-label>Semilla (x0)</mat-label>
+          <input matInput
+          placeholder="Ingrese un numero entero"
+          type="number"
+          [disabled]="submmited"
+          formControlName="x0"
+          required>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" fxFlex="100">
+          <mat-label>Numero entero (k)</mat-label>
+          <input matInput
+          type="number"
+          placeholder="Ingrese un numero entero"
+          formControlName="k"
+          (input)="calcularA()"
+          required>
+          <mat-hint>
+            <p class="h6">EL VALOR DE a es: {{valueA}}</p>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="row">
+        <mat-form-field appearance="outline"  >
+          <mat-label>numero entero (g)</mat-label>
+          <input matInput
+          type="number"
+          placeholder="Ingrese un numero entero"
+          formControlName="g"
+          (input)="calcularM()"
+          required>
+          <mat-hint>
+            <p class="h6">EL VALOR DE m es: {{valueM}}</p>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <br>
+      <div class="row">
+        <mat-form-field class="primary" appearance="outline" fxFlex="100">
+          <mat-label>Numero primo relativo a m (c)</mat-label>
+          <input matInput
+          placeholder="Ingrese un numero primo relativo a m"
+          type="number"
+          
+          formControlName="c"
+          required>
+        </mat-form-field>
+      </div>
+      <div class="row ">
+        <div class="col mx-auto d-flex justify-content-center">
+          <button  mat-raised-button color="primary" type="submit">
+            <mat-icon>arrow_forward</mat-icon>
+            GENERAR NUMEROS ALEATORIOS
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card>

@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+  }
+
+.example-container {
+height: 250px;
+max-width: 100%;
+overflow: auto;
+}
+
+.example-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.example-container::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.example-container::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.example-container::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.example-container::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.example-container::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}

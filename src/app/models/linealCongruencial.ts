@@ -3,7 +3,7 @@ export interface LinealCongruencialSecuencia{
     i:number,
     operation:string,
     xi:number,
-    ri:number,
+    ri:string,
 }
 
 export interface LinealCongruencial{
@@ -13,6 +13,5 @@ export interface LinealCongruencial{
     c:number,
     a:number,
     m:number,
-    secuencia?:LinealCongruencialSecuencia [],
 }
 

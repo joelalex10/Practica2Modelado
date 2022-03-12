@@ -17,6 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -26,6 +27,10 @@ import { LinealComponent } from './components/lineal/lineal.component';
 import { MultiplicativoComponent } from './components/multiplicativo/multiplicativo.component';
 import { FormDatosComponent } from './components/lineal/form-datos/form-datos.component';
 import { ListaDatosComponent } from './components/lineal/lista-datos/lista-datos.component';
+import { FormMultiplicativoComponent } from './components/multiplicativo/form-multiplicativo/form-multiplicativo.component';
+import { ListaMultiplicativoComponent } from './components/multiplicativo/lista-multiplicativo/lista-multiplicativo.component';
+import { FormCuadradoMedioComponent } from './components/cuadrado-medio/form-cuadrado-medio/form-cuadrado-medio.component';
+import { ListCuadradoMedioComponent } from './components/cuadrado-medio/list-cuadrado-medio/list-cuadrado-medio.component';
 
 
 @NgModule({
@@ -38,6 +43,10 @@ import { ListaDatosComponent } from './components/lineal/lista-datos/lista-datos
     MultiplicativoComponent,
     FormDatosComponent,
     ListaDatosComponent,
+    FormMultiplicativoComponent,
+    ListaMultiplicativoComponent,
+    FormCuadradoMedioComponent,
+    ListCuadradoMedioComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +64,7 @@ import { ListaDatosComponent } from './components/lineal/lista-datos/lista-datos
     MatTableModule,
     ReactiveFormsModule,
     MatBadgeModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

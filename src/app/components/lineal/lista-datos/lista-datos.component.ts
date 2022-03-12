@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LinealCongruencial, LinealCongruencialSecuencia } from 'src/app/models/linealCongruencial';
+import { LinealService } from 'src/app/services/lineal.service';
 
 @Component({
   selector: 'app-lista-datos',
@@ -7,20 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaDatosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private linealService:LinealService,
+  ) {
+   }
 
   ngOnInit(): void {
   }
-  displayedColumns: string[] = ['i', 'name', 'weight', 'symbol'];
-  dataSource: PeriodicElement[] = [
-    {i: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  ];
+
+  get dataSource():LinealCongruencialSecuencia[] {
+    return this.linealService.secuencia;
+  }
+
+  displayedColumns: string[] = ['i', 'operation', 'xi', 'ri'];
+  //dataSource: LinealCongruencialSecuencia[] = this.linealService.secuencia;
   
 
-}
-export interface PeriodicElement {
-  name: string;
-  i: number;
-  weight: number;
-  symbol: string;
 }

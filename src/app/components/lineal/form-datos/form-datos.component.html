@@ -1,7 +1,10 @@
 <mat-card>
     <mat-card-title>Ingresar Parametros</mat-card-title>
     
-    <p *ngIf="mostrarAdvertencia()" class="badge bg-danger">*Todos los campos son obligatorios</p>
+    <span *ngIf="mostrarAdvertencia(); else space" class="text-danger">*Todos los campos son obligatorios</span>
+    <ng-template #space>
+      <br>
+    </ng-template>
     <form [formGroup]="generateData" (ngSubmit)="generarNumeros()">
       <div class="row">
         <mat-form-field appearance="outline" fxFlex="100" >
@@ -9,7 +12,6 @@
           <input matInput
           placeholder="Ingrese un numero entero"
           type="number"
-          [disabled]="submmited"
           formControlName="x0"
           required>
         </mat-form-field>
@@ -50,7 +52,6 @@
           <input matInput
           placeholder="Ingrese un numero primo relativo a m"
           type="number"
-          
           formControlName="c"
           required>
         </mat-form-field>

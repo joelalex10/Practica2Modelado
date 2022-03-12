@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LinealCongruencial } from 'src/app/models/linealCongruencial';
 import { LinealService } from 'src/app/services/lineal.service';
@@ -14,6 +14,15 @@ export class FormDatosComponent implements OnInit {
 
   valueM:number=0;
   valueA:number=0;
+
+  @Input() linealCongruencial:LinealCongruencial={
+    x0: 0,
+    k: 0,
+    g: 0,
+    c: 0,
+    a: 0,
+    m: 0,
+  };
 
 
   constructor(
@@ -38,15 +47,16 @@ export class FormDatosComponent implements OnInit {
     if(this.generateData.invalid){
       return;
     }else{
-      let linealCongruencial:LinealCongruencial={
+      this.linealCongruencial = {
         x0: this.generateData.value.x0,
         k: this.generateData.value.k,
         g: this.generateData.value.g,
         c: this.generateData.value.c,
         a: this.valueA,
         m: this.valueM,
-      };
-      this.linealService.generateRandomData(linealCongruencial);
+      }
+      this.linealService.generateRandomData(this.linealCongruencial);
+      
     }
   }
   mostrarAdvertencia():boolean{

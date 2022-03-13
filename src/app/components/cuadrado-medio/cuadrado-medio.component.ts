@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CuadradoMedio } from 'src/app/models/cuadradoMedio';
 
 @Component({
   selector: 'app-cuadrado-medio',
@@ -7,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CuadradoMedioComponent implements OnInit {
 
+  cuadradoMedio:CuadradoMedio={
+    x0: 0,
+    d: 0,
+    n: 0
+  }
   constructor() { }
 
   ngOnInit(): void {

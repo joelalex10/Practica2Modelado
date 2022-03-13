@@ -31,6 +31,8 @@ import { FormMultiplicativoComponent } from './components/multiplicativo/form-mu
 import { ListaMultiplicativoComponent } from './components/multiplicativo/lista-multiplicativo/lista-multiplicativo.component';
 import { FormCuadradoMedioComponent } from './components/cuadrado-medio/form-cuadrado-medio/form-cuadrado-medio.component';
 import { ListCuadradoMedioComponent } from './components/cuadrado-medio/list-cuadrado-medio/list-cuadrado-medio.component';
+import { FormProductoMedioComponent } from './components/producto-medio/form-producto-medio/form-producto-medio.component';
+import { ListProductoMedioComponent } from './components/producto-medio/list-producto-medio/list-producto-medio.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { ListCuadradoMedioComponent } from './components/cuadrado-medio/list-cua
     ListaMultiplicativoComponent,
     FormCuadradoMedioComponent,
     ListCuadradoMedioComponent,
+    FormProductoMedioComponent,
+    ListProductoMedioComponent,
   ],
   imports: [
     BrowserModule,

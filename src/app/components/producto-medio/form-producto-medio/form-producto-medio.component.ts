@@ -12,6 +12,7 @@ export class FormProductoMedioComponent implements OnInit {
 
   submmited:boolean = false;
   generateData: FormGroup;
+  advertencia:string="";
 
   @Input() productoMedio:ProductoMedio={
     x0: 0,
@@ -47,14 +48,24 @@ export class FormProductoMedioComponent implements OnInit {
     if(this.generateData.invalid){
       return;
     }else{
-      this.productoMedio = {
-        x0: this.generateData.value.x0,
-        x1: this.generateData.value.x1,
-        n: this.generateData.value.n,
-        D: this.generateData.value.x0.toString().length
+      let tam1:number = this.generateData.value.x0.toString().length;
+      let tam2:number = this.generateData.value.x1.toString().length;
+      if(tam1===tam2){
+        this.advertencia = "";
+        this.productoMedio = {
+          x0: this.generateData.value.x0,
+          x1: this.generateData.value.x1,
+          n: this.generateData.value.n,
+          D: this.generateData.value.x0.toString().length
+        }
+        console.log(this.productoMedio)
+        this.productoMedioService.generateRandomData(this.productoMedio);
+      }else{
+        this.advertencia="x0 y x1 deben tener los mismos digitos"
       }
-      console.log(this.productoMedio)
-      this.productoMedioService.generateRandomData(this.productoMedio);
+      
+
+      
     }
   }
 }

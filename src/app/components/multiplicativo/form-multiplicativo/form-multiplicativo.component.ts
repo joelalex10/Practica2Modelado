@@ -14,13 +14,15 @@ export class FormMultiplicativoComponent implements OnInit {
 
   valueM:number=0;
   valueA:number=0;
+  valueP:number=0;
 
   @Input() multiplicativoCongruencial:MultiplicativoCongruencial={
     x0: 0,
     k: 0,
     g: 0,
     a: 0,
-    m: 0
+    m: 0,
+    p:0
   }
 
   constructor(
@@ -55,6 +57,10 @@ export class FormMultiplicativoComponent implements OnInit {
   }
   calcularM():void{
     this.valueM = Math.pow(2,this.generateData.value.g)
+    this.calcularP();
+  }
+  calcularP():void{
+    this.valueP = Math.pow(2,this.generateData.value.g-2)
   }
 
   generarNumeros():void{
@@ -68,6 +74,7 @@ export class FormMultiplicativoComponent implements OnInit {
         g:this.generateData.value.g,
         a:this.valueA,
         m:this.valueM,
+        p:this.valueP,
       }
       //console.log(this.multiplicativoCongruencial);
       this.multiplicativoService.generateRandomData(this.multiplicativoCongruencial);

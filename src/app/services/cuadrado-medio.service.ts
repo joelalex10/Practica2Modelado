@@ -9,6 +9,13 @@ export class CuadradoMedioService {
   public get secuencia(): CuadradoMedioSecuencia[] {
     return [...this._secuencia];;
   }
+  public itemDuplicado:CuadradoMedioSecuencia={
+    i: 0,
+    yi: 0,
+    operation: '',
+    xi: 0,
+    ri: 0
+  };
   constructor() { }
   limpiar(){
     this._secuencia=[];
@@ -24,6 +31,7 @@ export class CuadradoMedioService {
     let auxCadX:string ='';
     let auxX:number=0;
     let auxRi:number =0;
+    let cont:number=0;
 
     for(let index =0;index<cuadradoMedio.n;index++){
 
@@ -53,8 +61,28 @@ export class CuadradoMedioService {
         xi: auxX,
         ri: auxRi
       };
+      let res:boolean =this.verificarRepetido(this._secuencia,item);
+      if(res){
+        cont++;
+        if(cont<2){
+          console.log(`PRIMER REPETIDO EN I:${item.i}`);
+          this.itemDuplicado =item;
+
+        }
+      }
       this._secuencia.push(item);
+      
+    } 
+  }
+  verificarRepetido(lista: CuadradoMedioSecuencia[],item: CuadradoMedioSecuencia):boolean{
+    let result:boolean=false;
+    for(let i=0;i<lista.length;i++){
+      if(item.xi===lista[i].xi){
+        //console.log(`item.xi: ${item.xi}`);
+        //console.log(`lista[i].xi: ${lista[i].xi}`);
+        result=true;
+      }
     }
-    console.log(this._secuencia);
+    return result;
   }
 }

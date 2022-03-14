@@ -13,7 +13,8 @@ export class MultiplicativoComponent implements OnInit {
     k: 0,
     g: 0,
     a: 0,
-    m: 0
+    m: 0,
+    p:0
   }
 
   constructor() { }

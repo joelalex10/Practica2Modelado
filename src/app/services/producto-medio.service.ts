@@ -12,7 +12,13 @@ export class ProductoMedioService {
   public get secuencia(): ProductoMedioSecuencia[] {
     return [...this._secuencia];;
   }
-
+  public itemDuplicado:ProductoMedioSecuencia={
+    i: 0,
+    yi: 0,
+    operation: '',
+    xi: 0,
+    ri: 0
+  };
   constructor() { }
   limpiar(){
     this._secuencia=[];
@@ -29,8 +35,7 @@ export class ProductoMedioService {
     let auxCadX:string;
     let auxX:number;
     let auxR:number;
-
-
+    let cont:number=0;
 
     this._listX[0]=productoMedio.x0;
     this._listX[1]=productoMedio.x1;
@@ -61,9 +66,27 @@ export class ProductoMedioService {
         xi:auxX,
         ri:auxR
       };
+      let res:boolean =this.verificarRepetido(this._secuencia,item);
+      if(res){
+        cont++;
+        if(cont<2){
+          console.log(`PRIMER REPETIDO EN I:${item.i}`);
+          this.itemDuplicado =item;
+
+        }
+      }
       this._secuencia.push(item);
     }
     console.log(this._secuencia);
 
+  }
+  verificarRepetido(lista: ProductoMedioSecuencia[],item: ProductoMedioSecuencia):boolean{
+    let result:boolean=false;
+    for(let i=0;i<lista.length;i++){
+      if(item.xi===lista[i].xi){
+        result=true;
+      }
+    }
+    return result;
   }
 }

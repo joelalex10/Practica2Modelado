@@ -9,9 +9,20 @@ import { ProductoMedioService } from 'src/app/services/producto-medio.service';
 })
 export class ListProductoMedioComponent implements OnInit {
 
+  private itemDuplicado:ProductoMedioSecuencia= {
+    i: 0,
+    yi: 0,
+    operation: '',
+    xi: 0,
+    ri: 0
+  };
   constructor(
     private productoMedioService:ProductoMedioService,
   ) { }
+  limpiar():void{
+    this.productoMedioService.limpiar();
+    this.itemDuplicado.i =0;
+  }
 
   ngOnInit(): void {
   }
@@ -20,5 +31,21 @@ export class ListProductoMedioComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['i', 'yi', 'operation', 'xi','ri'];
+  
+  subtitulo():string{
+    let label:string;
+    this.itemDuplicado = this.productoMedioService.itemDuplicado;
+    if(this.itemDuplicado.i===0){
+      label= "*"
+    }else{
+      let i =this.itemDuplicado.i;
+      let yi =this.itemDuplicado.yi;
+      let xi =this.itemDuplicado.xi;
+      let ri =this.itemDuplicado.ri;
+      label= `LA SECUENCIA SE DEGENERA A PARTIR DE LA POSICION i=${i} ri=${ri} xi=${xi}`;
+    }
+    console.log(label);
+    return label;
+  }
 
 }

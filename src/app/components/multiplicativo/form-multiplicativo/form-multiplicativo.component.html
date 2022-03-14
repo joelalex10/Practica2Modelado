@@ -50,12 +50,17 @@
               formControlName="g"
               (input)="calcularM()"
               required>
-              <mat-hint>
-                <p class="h6">EL VALOR DE m es: {{valueM}}</p>
-              </mat-hint>
+                <mat-hint>
+                    <p class="h6">EL VALOR DE m es: {{valueM}} </p>
+                  </mat-hint>
             </mat-form-field>
         </div>
-
+        <br>
+        <div class="row">
+            <div class="col">
+                <label class="h6 me-3">Se generaran {{valueP}} numeros</label>
+            </div>
+        </div>
         <div class="row ">
             <div class="col mt-3 mx-auto d-flex justify-content-center">
                 <button  mat-raised-button color="primary" type="submit">
@@ -64,6 +69,10 @@
                 </button>
             </div>
         </div>
+        
+            
+                
+
 
     </form>
 </mat-card>

@@ -11,6 +11,7 @@ export interface MultiplicativoCongruencial{
     g:number,
     a:number,
     m:number,
+    p:number,
     secuencia?:MultiplicativoCongruencialSecuencia [],
 }
 
